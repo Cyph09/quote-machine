@@ -67,11 +67,7 @@ class QuoteBox extends Component {
             <Quote loading={isLoading} quote={quote} author={author} />
             <div className="quoteBox-buttons">
               <TwitterButton quote={quote} author={author} />
-              <Button
-                id="new-quote"
-                clicked={this.getNewQuote}
-                name="New Quote"
-              />
+              <Button clicked={this.getNewQuote} name="New Quote" />
             </div>
           </>
         )}
