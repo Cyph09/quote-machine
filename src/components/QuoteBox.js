@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Quote from "./Quote";
+import Button from "./Button";
+import TwitterButton from "./TwitterButton";
 
 function generateRandomQuote(arr) {
   const randomQuoteIndex = Math.floor(Math.random() * arr.length);
@@ -40,7 +43,7 @@ class QuoteBox extends Component {
       .catch(error => {
         this.setState({
           isLoading: false,
-          error: error.response.data
+          error: error
         });
       });
   }
@@ -54,22 +57,24 @@ class QuoteBox extends Component {
     }
   }
   render() {
+    const { isLoading, quote, author, error } = this.state;
     return (
-      <div id="quote-box" className="quoteBox">
-        <div className="quoteBox-quote">
-          {this.state.isLoading ? (
-            <h4>Loading</h4>
-          ) : (
-            <>
-              <p>{this.state.quote}</p>
-              <p className="author">-{this.state.author}</p>
-            </>
-          )}
-        </div>
-        <div className="quoteBox-controls">
-          <a href="#">Tweet Quote</a>
-          <button onClick={this.getNewQuote}>New Quote</button>
-        </div>
+      <div id="quote-box">
+        {error ? (
+          <h3>Opss...Something is not right. Please try again leter..!</h3>
+        ) : (
+          <>
+            <Quote loading={isLoading} quote={quote} author={author} />
+            <div className="quoteBox-buttons">
+              <TwitterButton quote={quote} author={author} />
+              <Button
+                id="new-quote"
+                clicked={this.getNewQuote}
+                name="New Quote"
+              />
+            </div>
+          </>
+        )}
       </div>
     );
   }
