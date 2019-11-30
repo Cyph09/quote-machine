@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap");
 
 // $color-primary: #eeeeee;
 $color-primary: #cfd8dc;
 
 body {
   margin: 0;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-size: 1rem;
 }
 
@@ -13,7 +13,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   min-height: 200px;
   background-color: $color-primary;
