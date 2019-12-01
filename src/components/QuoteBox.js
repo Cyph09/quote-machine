@@ -22,7 +22,7 @@ class QuoteBox extends Component {
   componentDidMount() {
     axios
       .get(
-        "https://gist.githubusercontent.com/irkreja/5f35dc197c6be4ddc32a45acdd23fcd7/raw/0d9b85d4a9d9da9dc67fa0257df66ed80702ff3a/quotes.json"
+        "https://gist.githubusercontent.com/Cyph09/15d53fe78f6960955cf6cb19630d2814/raw/6f1b1574d2ad0335808ea0e31bf6f197a8eaf234/quotes.json"
       )
       .then(response => {
         const { quotes } = response.data;
