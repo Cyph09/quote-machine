@@ -3,13 +3,7 @@ import axios from "axios";
 import Quote from "./Quote";
 import Button from "./Button";
 import TwitterButton from "./TwitterButton";
-
-function generateRandomQuote(arr) {
-  const randomQuoteIndex = Math.floor(Math.random() * arr.length);
-  let quote = arr[randomQuoteIndex].quote;
-  let author = arr[randomQuoteIndex].author;
-  return { quote, author };
-}
+import randomQuote from "../helpers/randomQuote";
 
 class QuoteBox extends Component {
   constructor(props) {
@@ -32,7 +26,7 @@ class QuoteBox extends Component {
       )
       .then(response => {
         const { quotes } = response.data;
-        let { quote, author } = generateRandomQuote(quotes);
+        let { quote, author } = randomQuote(quotes);
         this.setState({
           quotes,
           quote,
@@ -52,7 +46,7 @@ class QuoteBox extends Component {
     const { quotes } = this.state;
 
     if (quotes && quotes.length) {
-      let { quote, author } = generateRandomQuote(quotes);
+      let { quote, author } = randomQuote(quotes);
       this.setState({ quote, author });
     }
   }
